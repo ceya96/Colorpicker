@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+h1{
+    text-align: center;
+    font-family: sans-serif;
+    margin-top: 30px;
+}
+label{
+    color: black;
+    font-family: sans-serif;
+}
+body{
+    background: linear-gradient(320deg, #eb92be, #ffef78,#63c9b4);
+    height: 100vh;
+    width: 100%;
+}
+.container{
+    width: 70%;
+    height: 250px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.35);
+}
+.content{
+    display: grid;
+    grid-template: 20px 20px 20px / 25px 60px 1fr;
+    padding-top: 95px;   
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.content :not(:last-child) {
+    display: flex;
+    align-items: end;
+}
+#rot{
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+.rot-lab{
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+#gelb{
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+.gelb-lab{
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+#gruen{
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+.gruen-lab{
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+.colorbox{
+    border: solid black; 
+    grid-row-start: 1;
+    grid-row-end: 4;  
+    grid-column-start: 3;
+    transition: background-color 1s ease;    
+}
+#rot:checked ~ .colorbox{
+    background-color: red;
+}
+#gelb:checked ~ .colorbox{
+    background-color: yellow;    
+}
+#gruen:checked ~ .colorbox{
+    background-color: green;
+}
+
+/*Mobile Ansicht*/
+
+@media screen and (max-width: 600px){
+
+    .content{
+        display: grid;
+        grid-template: 80px 40px / repeat(6, 1fr);
+        padding-top: 75px;
+    }    
+    #rot, #gelb, #gruen{
+        width: 20px;
+        height: 20px; 
+        margin-right: 8px;
+    }
+    .rot-lab, .gelb-lab, .gruen-lab{
+        align-self:first baseline;      
+    }
+    #rot{
+        grid-column-start: 1;
+        grid-row-start: 2;
+        justify-self: end;
+    }
+    .rot-lab{
+        grid-column-start: 2;
+        grid-row-start: 2;
+    }
+    #gelb{
+        grid-column-start: 3;
+        grid-row-start: 2;
+        justify-self: end;
+    }
+    .gelb-lab{
+        grid-column-start: 4;
+        grid-row-start: 2;
+    }
+    #gruen{
+        grid-column-start: 5;
+        grid-row-start: 2;
+        justify-self: end;
+    }
+    .gruen-lab{
+        grid-column-start: 6;
+        grid-row-start: 2;
+    }
+    .colorbox{
+        grid-row-start: 1; 
+        grid-row-end: 2; 
+        grid-column-start: 1;
+        grid-column-end: 7;
+        margin-bottom: 20px;     
+    }
+}
+  
